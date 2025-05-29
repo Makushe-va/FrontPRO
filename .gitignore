@@ -1,0 +1,5 @@
+# Ignore IDE settings
+.idea/
+
+# Ignore macOS system files
+.DS_Store
