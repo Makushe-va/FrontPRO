@@ -1,26 +1,26 @@
 'use strict';
-// Імʼя користувача фіксоване тому const
+// The username is fixed, so we use const
 const userName =`John Doe`;
 
-// Вік користувача може змінюватися тому let
+// The user's age can change, so we use let
 let userAge = 25;
 
-// Чи верифікований користувач? Статус верифікації незмінний тому const
+// Is the user verified? The verification status doesn't change, so we use const
 const isVerified = true;
 
-//Дата реєстрації не зміна тому const
+//The registration date doesn't change, so we use const
 const registrationDate = "2025-05-10";
 
-//Номер картки користувача незмінний тому const
+//The user's card number is constant, so we use const
 const cardNumber = 66165368631246833286n;
 
-// Промокод якщо є. Може змінитися значення тому let
+// Promo code if available. The value may change, so we use let
 let promoCode = null;
 
-// Резервне імʼя undefined але може зʼявитися тому let
+// The reserve name is undefined, but it may appear, so we use let
 let reserveName;
 
-// Кількість бонусів числом, Може змінитися значення тому let
+// The number of bonuses as a number. The value may change, so we use let
 let bonusBalance = 250;
 
 console.log(`Користувач ${userName}, вік ${userAge}, має бонусів ${bonusBalance}`);
