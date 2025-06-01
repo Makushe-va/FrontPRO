@@ -1,21 +1,17 @@
-# ДЗ 6. Cимулятор користувача для вебдодатку
-🎯 Умови:
-Створіть не менше 8 змінних з відповідними типами:
-Ім’я користувача (string)
-Вік (number)
-Чи верифікований користувач? (boolean)
-Дата реєстрації (рядок у вигляді дати)
-Номер картки користувача (bigInt)
-Промокод (якщо є) (null або string)
-Резервне ім’я (undefined)
-Кількість бонусів на рахунку (number)
-Напишіть 3 console.log, які використовують ці змінні у зв’язному реченні:
-Приклад:
-Користувач Іван, вік 28, має бонусів: 250.
-Верифікація: true. Промокод: немає.
-Для кожної змінної виведіть typeof, щоб перевірити типи даних.
-🧠 Додатково:
-Використайте шаблонні рядки (`Hello ${name}`)
-Оформіть вивід так, щоб було читабельно
-Коментарями поясніть, що означає кожна змінна
-Уважно подумайте де повинна бути змінна, а де константа
+# ДЗ 10. Особиста картка користувача + список друзів
+1. Create a user object that has the following properties:
+name — string (username)
+age — number (age)
+isOnline — boolean value (whether online)
+friends — an array of 3 friends' names (strings)
+settings — nested object with fields:
+theme — string ("light" or "dark")
+notifications — boolean value (whether notifications are enabled)
+2. Create a separate variable firstFriendName, which will receive the value of the first friend from the user.friends array.
+3. Create a separate notificationEnabled variable that will receive the value from user.settings.notifications.
+4. Output to the console:
+   User name
+   Number of friends (not via method, just .length)
+   First friend's name
+   Which theme is enabled
+   Are notifications enabled?
