@@ -1,39 +1,45 @@
 'use strict';
-//We create a user object with properties
-const user = {
-    name: 'John',
-    age: 32,
-    isOnline: true,
-    friends: ['Den', 'Alice', 'Ben'],
-    settings:{
-        theme: 'light',
-        notification: true
-    }
+
+// Data collection via browser:
+
+const name = prompt('What is your name?');
+let age = Number(prompt('What is your age?'));
+const wantsNotifications = confirm('Do you want to receive notifications?');
+const userID = 12345678900998765556n;
+const lastLogin = null;
+let nickName;
+const favoriteTech = ["JavaScript", "HTML", "CSS"];
+const settings = {
+    theme: 'dark',
+    autologin: false,
 }
 
-/* We create a separate variable firstFriendName, which will receive the value of the first friend from the user.friends array.
- */
+// Creates a session object containing all the collected information(user name, user age.....)
 
-const firstFriendName = user.friends[0];
+const session = {
+    name,
+    age,
+    wantsNotifications,
+    userID,
+    lastLogin,
+    nickName,
+    favoriteTech,
+    settings
+};
 
-//We create a separate notificationEnabled variable, which will receive the value from user.settings.notifications.
+// display alert.
+alert(`Привіт, ${session.name}! Ваш ID: ${session.userID}`);
 
-const notificationsEnabled = user.settings.notification;
+// We output the entire object to the console.
+console.log(session);
 
-// We output to the console the user-name.
-console.log(user.name);
+//We output the type of each field to the console.
+console.log('name', typeof name);
+console.log('age', typeof age);
+console.log('wantsNotifications', typeof wantsNotifications);
+console.log('userID', typeof userID);
+console.log('lastLogin', typeof lastLogin);
+console.log('nickName', typeof nickName);
+console.log('favoriteTech', typeof favoriteTech);
+console.log('settings', typeof settings);
 
-// We output to the console the number of friends.
-console.log(user.friends.length);
-
-// We output the name of the first friend to the console.
-console.log(user.friends[0]);
-//the second option is to refer to the variable firstFriendName that was created
-console.log(firstFriendName);
-
-//We display in the console which theme is enabled.
-console.log(user.settings.theme);
-
-//We output to the console whether notifications are enabled.
-console.log(user.settings.notification);
-//the second option is to refer to the variable notificationsEnabled that was created

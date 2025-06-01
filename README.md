@@ -1,17 +1,24 @@
-# ДЗ 10. Особиста картка користувача + список друзів
-1. Create a user object that has the following properties:
-name — string (username)
-age — number (age)
-isOnline — boolean value (whether online)
-friends — an array of 3 friends' names (strings)
-settings — nested object with fields:
-theme — string ("light" or "dark")
-notifications — boolean value (whether notifications are enabled)
-2. Create a separate variable firstFriendName, which will receive the value of the first friend from the user.friends array.
-3. Create a separate notificationEnabled variable that will receive the value from user.settings.notifications.
-4. Output to the console:
-   User name
-   Number of friends (not via method, just .length)
-   First friend's name
-   Which theme is enabled
-   Are notifications enabled?
+# ДЗ 11. Особиста інформація + сесія в браузері
+You need to create a program that:
+1. Receives input from the user via prompt and confirm
+2. Creates a session object containing all the collected information
+3. Has a nested object and an array
+4. Uses all data types
+
+Steps:
+1. Data collection via browser:
+a) Ask for a name (prompt) → string;
+b) Ask for age → number (convert from a string);
+c) Ask if the user wants to receive notifications (confirm) → boolean;
+d) Create a fake userId as a bigInt (you can just manually write 1234567890123456789n);
+e) Set the lastLogin field to null;
+f) Create a nickname field, but do not set a value (leave undefined);
+g) Add a favoriteTech array of three technologies (any);
+h)Add a nested settings object with fields:
+    -theme: "dark" or "light"
+    -autoLogin: false
+2. Create a session object that will contain all this data.
+3. Output:
+   1) alert with short information: "Hello, [name]! Your ID is [userId]"
+   2) In console.log — the entire object
+   3) In console.log — the type of each field (via typeof)
