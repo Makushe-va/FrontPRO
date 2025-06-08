@@ -2,21 +2,14 @@
 
 // 1. The loop goes from 10 to 20 and outputs each number.
 
-for(let i=10; i<=20;i++){
-    document.write(i);
-    if(i<20){
-        document.write(",")
-    }
+for(let i = 10; i <= 20; i++){
+    document.write(i + (i < 20 ? "," : ""));
 }
 
-
 // 2. The loop goes from 10 to 20 and outputs the square of each number
-//
-// for(let i=10; i<=20;i++){
-//     document.write(i*i);
-//     if(i<20){
-//     document.write(",")
-//     }
+
+// for(let i = 10; i <= 20; i++){
+//     document.write((i * i) + (i < 20 ? "," : ""));
 // }
 
 //3. The loop from 1 to 10 multiplies each number by 7 and outputs the result
