@@ -1,55 +1,127 @@
 'use strict';
 
-// We ask the user his year of birth, in which city he lives and what is his favorite sport.
-// If he click "CANCEL" we display a message in Alert
+// 1. The loop goes from 10 to 20 and outputs each number.
 
-const yearBirth = prompt('Enter your year of birth');
-if (yearBirth === null) {
-    alert("It's a pity that you didn't enter the year of birth.");
-} else {
-   // We calculate the age of the user, for this we need the current date and the year of birth entered by the user
-    const year = +yearBirth;
-    const currentYear = new Date().getFullYear();
-    const ageUser = currentYear - year;
-
-    const city = prompt('In which city do you live?');
-    if (city === null) {
-        alert("It's a pity that you didn't want to write your city.");
-    } else {
-        const sport = prompt('What is your favorite sport?');
-        if (sport === null) {
-            alert("It's a pity that you didn't want to write about your favorite sport.");
-        } else {
-//We create a message about the city:
-let cityMessage;
-switch (city){
-    case 'Kyiv':
-        cityMessage = `You live in the capital of Ukraine!`;
-        break;
-        case 'London':
-            cityMessage = `You live in the capital of Great Britain!`;
-            break;
-            case 'Washington':
-                cityMessage = `You live in the capital of USA!`;
-                break;
-                default:
-                    cityMessage = `You live in the city ${city}!`;
+for(let i=10; i<=20;i++){
+    document.write(i);
+    if(i<20){
+        document.write(",")
+    }
 }
-//We create a message about the sport:
-let sportMessage;
-switch (sport){
-    case 'football':
-        sportMessage = `Cool! Do you want to become like Diego Maradona?`;
-        break;
-        case 'tennis':
-            sportMessage = `Cool! Do you want to become like Rafail Nadal?`;
-            break;
-            case 'hockey':
-                sportMessage = `Cool! Do you want to become like Wayne Gretzky?`;
-                break;
-                default:
-                    sportMessage = `Your favorite sport ${sport}`
-}
-// We show everything in one alert:
 
-alert(`You are ${ageUser} years old ${cityMessage}, ${sportMessage}`);}}}
+
+// 2. The loop goes from 10 to 20 and outputs the square of each number
+//
+// for(let i=10; i<=20;i++){
+//     document.write(i*i);
+//     if(i<20){
+//     document.write(",")
+//     }
+// }
+
+//3. The loop from 1 to 10 multiplies each number by 7 and outputs the result
+
+// for (let i=1; i<=10;i++){
+//     document.write("7*" + i + " = "+(7 * i));
+//     if(i<10){
+//         document.write("<br>");
+//     }
+// }
+
+//4. We create a change that will accumulate all the numbers from 1 to 15. Each cycle adds the next number
+
+// let sum=0;
+// for(let i=1; i<=15;i++) {
+//     sum += i;
+// }
+//     document.write(sum);
+
+
+
+//5. Create a change that starts with 1, then multiplies by every number from 15 to 35
+
+// let product = 1;
+// for(let i=15; i<=35;i++){
+//     product *= i;
+// }
+// document.write(product);
+//
+
+
+//6. We calculate the sum of all numbers. Divide by the number of numbers. We get the average value
+
+// let sumSum = 0;
+// for(let i=1; i<=500;i++){
+//     sumSum += i;
+// }
+// let averageValue=sumSum / 500;
+// document.write(averageValue);
+
+
+
+//7. We create a variable that accumulates the sum of even numbers.
+// We check whether the number is even.If so, we add to the variable
+
+// let evenSum = 0;
+// for (let i = 30; i <= 80; i++) {
+//     if (i % 2 === 0) {
+//         evenSum += i;
+//     }
+// }
+// document.write(evenSum);
+//
+
+
+//8. The loop checks the numbers from 100 to 200. We check whether the number is divisible by 3 without a remainder.
+
+// for (let i = 100; i <= 200; i++) {
+//     if (i % 3 === 0) {
+//         document.write(i +"<br>");
+//     }
+// }
+
+
+//9. We create a variable equal to a natural number. We check each number to see if it is a divisor.
+// If the number is a divisor, then we output it
+
+// let number = 100;
+// for(let i= 1; i <= number; i++){
+//     if (number % i === 0) {
+//         document.write(i + "<br>");
+//     }
+// }
+
+
+// 10. We create a variable equal to a natural number. We check whether it is a divisor and whether it is an even number.
+//If both conditions are met, add to the variable (1 pc.).As a result, we get the number of its even divisors
+
+// let number = 100;
+// let evenDivisors = 0;
+// for (let i = 1; i <= number; i++) {
+//     if (number % i === 0 && i % 2 === 0) {
+//         evenDivisors++;
+//     }
+// }
+// document.write(evenDivisors);
+
+
+//11. We create a variable equal to a natural number. We check whether it is a divisor and whether it is an even number.
+// If both conditions are met,add the value of the even divisors. As a result, we get the sum of its even divisors.
+
+// let num = 100;
+// let evenDivSum = 0;
+// for (let i = 1; i <= num; i++) {
+//     if (num % i === 0 && i % 2 === 0) {
+//         evenDivSum += i;
+//     }
+// }
+// document.write(evenDivSum);
+
+// 12.Multiplication table
+
+// for (let i = 1; i <= 10; i++) {
+//     for (let j = 1; j <= 10; j++) {
+//         document.write(`${i} * ${j} = ${i * j}<br>`);
+//     }
+//     document.write("<br>");
+// }

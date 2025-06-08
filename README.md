@@ -1,16 +1,16 @@
-# ДЗ 15.  Виконувати третім: Портрет користувача
+# ДЗ 16.  Написання циклів
 
-Part 1
-Create a script that should do the following:
-1) ask the user for their year of birth;
-2) ask him in which city he lives;
-3) ask his favorite sport.
-   When you click on OK, we show a window where the following information should be displayed:
-1) his age;
-2) if the user indicates Kyiv, Washington or London, then show him the message - "You live in the capital..." and instead of dots we substitute the country whose capital is the city. Otherwise, we show him "you live in the city...", where the location of the points is the entered city.
-
-Part 2
-We choose three sports and three champions in these sports. Accordingly, if the user specifies one of these sports, we show him the message "Cool! Do you want to become ...?" and replace the dots with the name and surname of the champion.
-
-All this should be displayed in one window (alert).
-If in some case he does not want to enter information and clicks Cancel, show him the message - "It's a pity that you did not want to enter your ..." and indicate that he did not want to enter - date of birth, city or sport.
+Уважно: не забувайте використовувати тернарні оператори, за потреби
+Написати цикли, які зможуть:
+1) Вивести на сторінку в один рядок через кому числа від 10 до 20. 
+2) Вивести квадрати чисел від 10 до 20. 
+3) Вивести таблицю множення на 7. 
+4) Знайти суму всіх цілих чисел від 1 до 15. 
+5) Знайти добуток усіх цілих чисел від 15 до 35. 
+6) Знайти середнє арифметичне всіх цілих чисел від 1 до 500. 
+7) Вивести суму лише парних чисел в діапазоні від 30 до 80. 
+8) Вивести всі числа в діапазоні від 100 до 200 кратні 3. 
+9) Дано натуральне число. Знайти та вивести на сторінку всі його дільники.
+10) Визначити кількість його парних дільників. 
+11) Знайти суму його парних дільників. 
+12) Надрукувати повну таблицю множення від 1 до 10.
