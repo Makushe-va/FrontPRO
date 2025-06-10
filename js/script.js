@@ -14,7 +14,7 @@ for (let dollars = 10; dollars <= 100; dollars += 10) {
     console.log(`${dollars} USD = ${hryvnias} UAH`);
 }
 
-// 3. We create a change that does not exceed the square of the number.if (i * i <= N) checks if the square of i is less than or equal to N. If so, the number is displayed. If not, the cycle stops.
+// 3.  We create a change that does not exceed the square of the number.if (i * i <= N) checks if the square of i is less than or equal to N. If so, the number is displayed. If not, the cycle stops.
 
 const N = 300;
 for (let i = 1; i <= 100; i++) {
