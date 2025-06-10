@@ -1,120 +1,54 @@
 'use strict';
 
-// 1. The loop goes from 10 to 20 and outputs each number.
+//1. We output numbers from 20 to 30. we use a step of 0.5
+let output = "";
+for (let i = 20; i <= 30; i += 0.5) {
+    output += i + (i < 30 ? " " : "");
+}
+console.log(output);
 
-for(let i = 10; i <= 20; i++){
-    document.write(i + (i < 20 ? "," : ""));
+//2. We create a change with the dollar rate.For each value, the amount in hryvnias is calculated. We derive the calculation.
+const rate = 27;
+for (let dollars = 10; dollars <= 100; dollars += 10) {
+    let hryvnias = dollars * rate;
+    console.log(`${dollars} USD = ${hryvnias} UAH`);
 }
 
-// 2. The loop goes from 10 to 20 and outputs the square of each number
+// 3. We create a change that does not exceed the square of the number.if (i * i <= N) checks if the square of i is less than or equal to N. If so, the number is displayed. If not, the cycle stops.
 
-// for(let i = 10; i <= 20; i++){
-//     document.write((i * i) + (i < 20 ? "," : ""));
-// }
+const N = 300;
+for (let i = 1; i <= 100; i++) {
+    if (i * i <= N) {
+        console.log(i);
+    } else {
+        break;
+    }
+}
 
-//3. The loop from 1 to 10 multiplies each number by 7 and outputs the result
+// 4. We create a change for testing.We check whether number is divisible by any of these numbers without a remainder.
+// if number % i === 0), then: it is not a prime number. We exit the cycle. We derive the result
 
-// for (let i=1; i<=10;i++){
-//     document.write("7*" + i + " = "+(7 * i));
-//     if(i<10){
-//         document.write("<br>");
-//     }
-// }
+const number = 13;
+let prime = number > 1;
+for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+        prime = false;
+        break;
+    }
+}
+console.log(`${number} ${prime ? "просте число" : "не просте числом"}`);
 
-//4. We create a change that will accumulate all the numbers from 1 to 15. Each cycle adds the next number
-
-// let sum=0;
-// for(let i=1; i<=15;i++) {
-//     sum += i;
-// }
-//     document.write(sum);
-
-
-
-//5. Create a change that starts with 1, then multiplies by every number from 15 to 35
-
-// let product = 1;
-// for(let i=15; i<=35;i++){
-//     product *= i;
-// }
-// document.write(product);
-//
-
-
-//6. We calculate the sum of all numbers. Divide by the number of numbers. We get the average value
-
-// let sumSum = 0;
-// for(let i=1; i<=500;i++){
-//     sumSum += i;
-// }
-// let averageValue=sumSum / 500;
-// document.write(averageValue);
+//5. We create a function with an argument of the number we are checking. We check two conditions: the number > 1 and the number is divisible by three without a remainder. Divide the number n by 3. We check whether the number n has become equal to 1.If so, the number was a power of three. If not, the number is not a power of three.
+function threePowerCheck(n) {
+    while (n > 1 && n % 3 === 0) {
+        n /= 3;
+    }
+    return n === 1;
+}
+console.log(threePowerCheck(81));
+console.log(threePowerCheck(12));
 
 
 
-//7. We create a variable that accumulates the sum of even numbers.
-// We check whether the number is even.If so, we add to the variable
-
-// let evenSum = 0;
-// for (let i = 30; i <= 80; i++) {
-//     if (i % 2 === 0) {
-//         evenSum += i;
-//     }
-// }
-// document.write(evenSum);
-//
 
 
-//8. The loop checks the numbers from 100 to 200. We check whether the number is divisible by 3 without a remainder.
-
-// for (let i = 100; i <= 200; i++) {
-//     if (i % 3 === 0) {
-//         document.write(i +"<br>");
-//     }
-// }
-
-
-//9. We create a variable equal to a natural number. We check each number to see if it is a divisor.
-// If the number is a divisor, then we output it
-
-// let number = 100;
-// for(let i= 1; i <= number; i++){
-//     if (number % i === 0) {
-//         document.write(i + "<br>");
-//     }
-// }
-
-
-// 10. We create a variable equal to a natural number. We check whether it is a divisor and whether it is an even number.
-//If both conditions are met, add to the variable (1 pc.).As a result, we get the number of its even divisors
-
-// let number = 100;
-// let evenDivisors = 0;
-// for (let i = 1; i <= number; i++) {
-//     if (number % i === 0 && i % 2 === 0) {
-//         evenDivisors++;
-//     }
-// }
-// document.write(evenDivisors);
-
-
-//11. We create a variable equal to a natural number. We check whether it is a divisor and whether it is an even number.
-// If both conditions are met,add the value of the even divisors. As a result, we get the sum of its even divisors.
-
-// let num = 100;
-// let evenDivSum = 0;
-// for (let i = 1; i <= num; i++) {
-//     if (num % i === 0 && i % 2 === 0) {
-//         evenDivSum += i;
-//     }
-// }
-// document.write(evenDivSum);
-
-// 12.Multiplication table
-
-// for (let i = 1; i <= 10; i++) {
-//     for (let j = 1; j <= 10; j++) {
-//         document.write(`${i} * ${j} = ${i * j}<br>`);
-//     }
-//     document.write("<br>");
-// }
