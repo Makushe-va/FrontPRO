@@ -1,4 +1,8 @@
-# ДЗ 19. Переглянути урок і виконати задачу
+# ДЗ 20. Реалізуйте функцію generateKey
 
-Напишіть функцію greetUser, яка приймає один параметр — ім'я користувача (рядок),
-і повертає рядок виду: "Привіт, [ІМ'Я]!"
+Реалізуйте функцію generateKey(length, characters), яка повертає рядок випадкових символів із набору characters довжиною length. span>
+Наприклад:
+const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+
+const key = generateKey(16, characters);
+console.log(key); // eg599gb60q926j8i
