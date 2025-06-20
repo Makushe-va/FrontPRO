@@ -1,27 +1,40 @@
 'use strict';
 
-function padString(str, num, symbol, left = true) {
-    if( typeof str !== 'string' ) throw new Error('this argument must be a string');
-    if (typeof num !== 'number') throw new Error('this argument must be a number');
-    if (typeof symbol !== 'string' || symbol.length !==1) throw new Error('this argument must be a string of length 1');
-    if (typeof left !== 'boolean') throw new Error('this argument must be a boolean(true or false)');
-    if (num < str.length){
-        return str.substr(0, num);
+const numPositive = (arr) => {
+    const positiveArr = [];
+    if (arr.length === 0) return 'The array is empty';
+    for (let i = 0; i < arr.length; i++) {
+        const current = arr[i];
+        if (current > 0) {
+            positiveArr.push(current);
+        }
     }
-    const symbolToAdd = num - str.length;
-    let padding = '';
-    for (let i = 0; i<symbolToAdd; i++) {
-        padding += symbol;
-    }
-    if (left){
-        return str + padding;
-    } else {
-        return padding+str;
-    }
+    return positiveArr.length > 0 ? positiveArr : null;
 }
+const arr = [1,2,3,4,5,-1,-2,-3,-4,-5];
+console.log(numPositive(arr));
 
-console.log(padString('hello',8,'$'));
-console.log(padString('hello',6,'$', false));
-console.log(padString('hello',1,));
-console.log(padString('hello',5,'$'))
 
+
+
+//
+// function numPositiveOne(arr){
+//     const positiveArr = [];
+//     if(arr.length === 0){
+//         return 'The array is empty';
+//     }
+//     for(let i = 0; i < arr.length; i++){
+//         const current = arr[i];
+//         if(current > 0){
+//             positiveArr.push(current);
+//         }
+//     }
+//     if(positiveArr.length > 0){
+//         return positiveArr;
+//     } else {
+//         return null;
+//     }
+//
+// }
+// const arr1 = [1,2,3,4,5,-1,-2,-3,-4,-5];
+// console.log(numPositiveOne(arr1));
