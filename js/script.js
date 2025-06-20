@@ -1,17 +1,27 @@
 'use strict';
 
-//We create a function with length and characters arguments.
-//In the function, we create a change for the key.
-//Using a loop, we generate a random value and add it to the key
-function generateKey (length, character ) {
-    let key = '';
-    for (let i = 0; i < length; i++) {
-        const randomNum = Math.floor(Math.random() * characters.length);
-        key += character[randomNum];
+function padString(str, num, symbol, left = true) {
+    if( typeof str !== 'string' ) throw new Error('this argument must be a string');
+    if (typeof num !== 'number') throw new Error('this argument must be a number');
+    if (typeof symbol !== 'string' || symbol.length !==1) throw new Error('this argument must be a string of length 1');
+    if (typeof left !== 'boolean') throw new Error('this argument must be a boolean(true or false)');
+    if (num < str.length){
+        return str.substr(0, num);
     }
-    return key;
+    const symbolToAdd = num - str.length;
+    let padding = '';
+    for (let i = 0; i<symbolToAdd; i++) {
+        padding += symbol;
+    }
+    if (left){
+        return str + padding;
+    } else {
+        return padding+str;
+    }
 }
 
-const characters = 'qwerty123456789qwerty987654321';
-const key = generateKey(6, characters);
-console.log(key);
+console.log(padString('hello',8,'$'));
+console.log(padString('hello',6,'$', false));
+console.log(padString('hello',1,));
+console.log(padString('hello',5,'$'))
+
