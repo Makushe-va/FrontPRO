@@ -1,88 +1,68 @@
 'use strict';
-//1.We implement the function identically to the array method indexOf
-function indexOf(array, value) {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] === value) {
-            return i;
-        }
-    }
-    return -1;
-}
-const arr1 = [1, 2, 3, 4, 5];
-console.log(indexOf(arr1, 3));
+const arr = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
 
+// 1. We find the sum and number of positive elements
+const positiveElem = arr.filter(num => num > 0);
+const sumPositiveElem = positiveElem.reduce((sum, num) => sum + num, 0);
+const numberPositiveElem = positiveElem.length;
 
-//2. We implement the function identically to the array method lastIndexOf
-function lastIndexOf(array, value) {
-    for (let i = array.length - 1; i >= 0; i--) {
-        if (array[i] === value) {
-            return i;
-        }
-    }
-    return -1;
-}
-const arr2 = [1, 2, 3, 4, 5];
-console.log(lastIndexOf(arr2, 3));
+console.log(sumPositiveElem);
+console.log(numberPositiveElem);
 
+//2. We find the minimum element of the array and its serial number.
 
-//3.We implement the function identically to the array method find
-function find(array, callback) {
-    for (let i = 0; i < array.length; i++) {
-        if (callback(array[i], i, array)) {
-            return array[i];
-        }
-    }
-    return undefined;
-}
-const arr3 = [1, 2, 3, 4, 5];
-console.log(find(arr3, n => n > 3));
+const min = Math.min(...arr);
+const minIndex = arr.indexOf(min);
 
+console.log(min);
+console.log(minIndex);
 
-//4.We implement the function identically to the array method findIndex
-function findIndex(array, callback) {
-    for (let i = 0; i < array.length; i++) {
-        if (callback(array[i], i, array)) {
-            return i;
-        }
-    }
-    return -1;
-}
-const arr4 = [1, 2, 3, 4, 5];
-console.log(findIndex(arr4, n => n === 4));
+// 3. We find the max element of the array and its serial number.
 
+const max = Math.max(...arr);
+const maxIndex = arr.indexOf(max);
 
-//5.We implement the function identically to the array method includes
-function includes(array, value) {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] === value) {
-            return true;
-        }
-    }
-    return false;
-}
-const arr5 = [1, 2, 3, 4, 5];
-console.log(includes(arr5, 2));
+console.log(max);
+console.log(maxIndex);
 
-//6.We implement the function identically to the array method every
-function every(array, callback) {
-    for (let i = 0; i < array.length; i++) {
-        if (!callback(array[i], i, array)) {
-            return false;
-        }
-    }
-    return true;
-}
-const arr6 = [1, 2, 3, 4, 5];
-console.log(every(arr6, n => n > 0));
+//4. We determine the number of negative elements
+const negativeElem = arr.filter(num => num < 0).length;
 
-//7.We implement the function identically to the array method some
-function some(array, callback) {
-    for (let i = 0; i < array.length; i++) {
-        if (callback(array[i], i, array)) {
-            return true;
-        }
-    }
-    return false;
-}
-const arr7 = [1, 2, 3, 4, 5];
-console.log(some(arr7, n => n > 4));
+console.log(negativeElem);
+
+//5.  We find the number of odd positive elements.
+
+const oddPositiveElem = positiveElem.filter(num => num % 2 !== 0).length;
+
+console.log(oddPositiveElem);
+
+//6. We find the number of even positive elements
+const evenPositiveElem = positiveElem.filter(num => num % 2 === 0).length;
+
+console.log(evenPositiveElem);
+
+//7. We find the sum of even positive elements.
+const evenPositiveSum = positiveElem
+    .filter(num => num % 2 === 0)
+    .reduce((sum, num) => sum + num, 0);
+
+console.log(evenPositiveSum);
+
+// 8. We find the sum of odd positive elements.
+const oddPositiveSum = positiveElem
+    .filter(num => num % 2 !== 0)
+    .reduce((sum, num) => sum + num, 0);
+
+console.log(oddPositiveSum);
+
+//9. Let's find the product of positive elements.
+
+const productPositive = positiveElem.reduce((product, num) => product * num, 1);
+
+console.log(productPositive);
+
+//10. We find the largest among the elements of the array, we reset the others to zero.
+const onlyMax = arr.map(num => num === max ? num : 0);
+
+console.log(onlyMax);
+
