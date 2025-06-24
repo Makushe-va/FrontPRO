@@ -1,40 +1,88 @@
 'use strict';
-// We check for an empty array, if the length is 0 we return undefined. We store the first element in a variable
-
-function deleteFirst(array) {
-    if (array.length === 0) {
-        return undefined;
+//1.We implement the function identically to the array method indexOf
+function indexOf(array, value) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            return i;
+        }
     }
-    const firstElement = array[0];
-    // We shift all elements one position to the left
-    for (let i = 1; i < array.length; i++) {
-        array[i - 1] = array[i];
-    }
-    //Cut the length of the array and delete the last element
-    array.length = array.length - 1;
-    return firstElement;
+    return -1;
 }
-
-const arr = [100, 20, 30, 40, 50];
-const deleted = deleteFirst(arr);
-console.log(deleted);
-console.log(arr);
-
-
-//We find the length of the array. We start the cycle. In each iteration, we replace the elements with cities.
-// We return the inverted array
-function reverseArray(arr1) {
-    const length = arr1.length;
-
-    for (let i = 0; i < Math.floor(length / 2); i++) {
-        const temp = arr1[i];
-        arr1[i] = arr1[length - 1 - i];
-        arr1[length - 1 - i] = temp;
-    }
-    return arr1;
-}
-
-
 const arr1 = [1, 2, 3, 4, 5];
-reverseArray(arr1);
-console.log(arr1);
+console.log(indexOf(arr1, 3));
+
+
+//2. We implement the function identically to the array method lastIndexOf
+function lastIndexOf(array, value) {
+    for (let i = array.length - 1; i >= 0; i--) {
+        if (array[i] === value) {
+            return i;
+        }
+    }
+    return -1;
+}
+const arr2 = [1, 2, 3, 4, 5];
+console.log(lastIndexOf(arr2, 3));
+
+
+//3.We implement the function identically to the array method find
+function find(array, callback) {
+    for (let i = 0; i < array.length; i++) {
+        if (callback(array[i], i, array)) {
+            return array[i];
+        }
+    }
+    return undefined;
+}
+const arr3 = [1, 2, 3, 4, 5];
+console.log(find(arr3, n => n > 3));
+
+
+//4.We implement the function identically to the array method findIndex
+function findIndex(array, callback) {
+    for (let i = 0; i < array.length; i++) {
+        if (callback(array[i], i, array)) {
+            return i;
+        }
+    }
+    return -1;
+}
+const arr4 = [1, 2, 3, 4, 5];
+console.log(findIndex(arr4, n => n === 4));
+
+
+//5.We implement the function identically to the array method includes
+function includes(array, value) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            return true;
+        }
+    }
+    return false;
+}
+const arr5 = [1, 2, 3, 4, 5];
+console.log(includes(arr5, 2));
+
+//6.We implement the function identically to the array method every
+function every(array, callback) {
+    for (let i = 0; i < array.length; i++) {
+        if (!callback(array[i], i, array)) {
+            return false;
+        }
+    }
+    return true;
+}
+const arr6 = [1, 2, 3, 4, 5];
+console.log(every(arr6, n => n > 0));
+
+//7.We implement the function identically to the array method some
+function some(array, callback) {
+    for (let i = 0; i < array.length; i++) {
+        if (callback(array[i], i, array)) {
+            return true;
+        }
+    }
+    return false;
+}
+const arr7 = [1, 2, 3, 4, 5];
+console.log(some(arr7, n => n > 4));
