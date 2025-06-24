@@ -1,83 +1,40 @@
 'use strict';
-//1. We create a function that calculates the arithmetic average of only the numerical elements of the given array.
-function averageNum(arr) {
-    let sum = 0;
-    let count = 0;
+// We check for an empty array, if the length is 0 we return undefined. We store the first element in a variable
 
-    arr.forEach(item => {
-        if (typeof item === 'number') {
-            sum += item;
-            count++;
-        }
-    });
-
-    return count > 0 ? sum / count : 'There are no numbers in the array';
-}
-const mixArray = [1, 'hello', 3, true, 5, null, 7];
-console.log(averageNum(mixArray));
-
-
-//2. A function with three arguments (a number, a sign of a mathematical operation, a number).
-// We derive the result of a mathematical operation
-function doMath(x, znak, y) {
-    switch (znak) {
-        case '+': return x + y;
-        case '-': return x - y;
-        case '*': return x * y;
-        case '/': return x / y;
-        case '%': return x % y;
-        case '^': return Math.pow(x, y);
-        default: return 'unknown';
+function deleteFirst(array) {
+    if (array.length === 0) {
+        return undefined;
     }
-}
-
-const x = +prompt('Введіть число:');
-const znak = prompt('Введіть знак (+, -, *, /, %, ^):');
-const y = +prompt('Введіть число:');
-console.log(doMath(x, znak, y));
-
-//3. We ask the user for the number of rows and columns. The outer loop creates each row and the inner loop adds the elements.
-//The value is entered by the user.
-
-function fillArray() {
-    const rows = +prompt('Скільки рядків буде в масиві?');
-    const cols = +prompt('Скільки стовпців буде в рядку?');
-    const result = [];
-
-    for (let i = 0; i < rows; i++) {
-        result[i] = [];
-        for (let j = 0; j < cols; j++) {
-            result[i][j] = prompt(`Введіть значення для елементу [${i}][${j}]:`);
-        }
+    const firstElement = array[0];
+    // We shift all elements one position to the left
+    for (let i = 1; i < array.length; i++) {
+        array[i - 1] = array[i];
     }
-    return result;
+    //Cut the length of the array and delete the last element
+    array.length = array.length - 1;
+    return firstElement;
 }
 
-const userArray = fillArray();
-console.log(userArray);
+const arr = [100, 20, 30, 40, 50];
+const deleted = deleteFirst(arr);
+console.log(deleted);
+console.log(arr);
 
 
-//4. We create a change for writing characters. We loop through each character in the string. We check the condition, yes or no.
-// We get the result.
+//We find the length of the array. We start the cycle. In each iteration, we replace the elements with cities.
+// We return the inverted array
+function reverseArray(arr1) {
+    const length = arr1.length;
 
-function deleteSym(str, symToDelete) {
-    let result = '';
-
-    for (let i = 0; i < str.length; i++) {
-        let remove = false;
-
-        for (let j = 0; j < symToDelete.length; j++) {
-            if (str[i] === symToDelete[j]) {
-                remove = true;
-                break;
-            }
-        }
-        if (!remove) {
-            result += str[i];
-        }
+    for (let i = 0; i < Math.floor(length / 2); i++) {
+        const temp = arr1[i];
+        arr1[i] = arr1[length - 1 - i];
+        arr1[length - 1 - i] = temp;
     }
-    return result;
+    return arr1;
 }
 
-console.log(deleteSym("Hello world", ['e', 'o']));
 
+const arr1 = [1, 2, 3, 4, 5];
+reverseArray(arr1);
+console.log(arr1);
