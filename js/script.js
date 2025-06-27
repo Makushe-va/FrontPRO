@@ -1,68 +1,75 @@
 'use strict';
-const arr = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+let users = [
+    {
+        "index": 0,
+        "isActive": true,
+        "balance": "$2,226.60",
+        "name": "Eugenia Sawyer",
+        "gender": "female",
+        "phone": "+1 (840) 583-3207",
+        "address": "949 John Street, Rose, Puerto Rico, 1857"
+    },
+    {
+        "index": 1,
+        "isActive": true,
+        "balance": "$2,613.77",
+        "name": "Pauline Gallegos",
+        "gender": "female",
+        "phone": "+1 (985) 593-3328",
+        "address": "328 Greenpoint Avenue, Torboy, North Dakota, 6857"
+    },
+    {
+        "index": 2,
+        "isActive": false,
+        "balance": "$3,976.41",
+        "name": "Middleton Chaney",
+        "gender": "male",
+        "phone": "+1 (995) 591-2478",
+        "address": "807 Fleet Walk, Brutus, Arkansas, 9783"
+    },
+    {
+        "index": 3,
+        "isActive": true,
+        "balance": "$1,934.58",
+        "name": "Burns Poole",
+        "gender": "male",
+        "phone": "+1 (885) 559-3422",
+        "address": "730 Seba Avenue, Osage, Alabama, 6290"
+    },
+    {
+        "index": 4,
+        "isActive": true,
+        "balance": "$3,261.65",
+        "name": "Mcfadden Horne",
+        "gender": "male",
+        "phone": "+1 (942) 565-3988",
+        "address": "120 Scholes Street, Kirk, Michigan, 1018"
+    },
+    {
+        "index": 5,
+        "isActive": false,
+        "balance": "$1,790.56",
+        "name": "Suzette Lewis",
+        "gender": "female",
+        "phone": "+1 (837) 586-3283",
+        "address": "314 Dunne Place, Bawcomville, Guam, 9053"
+    }
+]
+// Converting the balance from a string to a floating point number
+function parseBalance(balanceStr) {
+    return parseFloat(balanceStr.replace(/[$,]/g, ""));
+}
+// We output an array of phone numbers of users whose balance exceeds 2000 dollars
+//using the filter we select users with balances > 2000 and using map we extract an array of phones
+let phonesOver2000 = users
+  .filter(user => parseBalance(user.balance) > 2000)
+  .map(user => user.phone);
 
-// 1. We find the sum and number of positive elements
-const positiveElem = arr.filter(num => num > 0);
-const sumPositiveElem = positiveElem.reduce((sum, num) => sum + num, 0);
-const numberPositiveElem = positiveElem.length;
+console.log("Телефони користувачів із балансом понад $2000:");
+console.log(phonesOver2000);
 
-console.log(sumPositiveElem);
-console.log(numberPositiveElem);
+//Find the sum of all user balances
+let sumBalance = users
+    .reduce((sum, user) => sum + parseBalance(user.balance), 0);
 
-//2. We find the minimum element of the array and its serial number.
-
-const min = Math.min(...arr);
-const minIndex = arr.indexOf(min);
-
-console.log(min);
-console.log(minIndex);
-
-// 3. We find the max element of the array and its serial number.
-
-const max = Math.max(...arr);
-const maxIndex = arr.indexOf(max);
-
-console.log(max);
-console.log(maxIndex);
-
-//4. We determine the number of negative elements
-const negativeElem = arr.filter(num => num < 0).length;
-
-console.log(negativeElem);
-
-//5.  We find the number of odd positive elements.
-
-const oddPositiveElem = positiveElem.filter(num => num % 2 !== 0).length;
-
-console.log(oddPositiveElem);
-
-//6. We find the number of even positive elements
-const evenPositiveElem = positiveElem.filter(num => num % 2 === 0).length;
-
-console.log(evenPositiveElem);
-
-//7. We find the sum of even positive elements.
-const evenPositiveSum = positiveElem
-    .filter(num => num % 2 === 0)
-    .reduce((sum, num) => sum + num, 0);
-
-console.log(evenPositiveSum);
-
-// 8. We find the sum of odd positive elements.
-const oddPositiveSum = positiveElem
-    .filter(num => num % 2 !== 0)
-    .reduce((sum, num) => sum + num, 0);
-
-console.log(oddPositiveSum);
-
-//9. Let's find the product of positive elements.
-
-const productPositive = positiveElem.reduce((product, num) => product * num, 1);
-
-console.log(productPositive);
-
-//10. We find the largest among the elements of the array, we reset the others to zero.
-const onlyMax = arr.map(num => num === max ? num : 0);
-
-console.log(onlyMax);
-
+console.log(sumBalance);
