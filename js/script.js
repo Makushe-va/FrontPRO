@@ -1,46 +1,43 @@
 'use strict';
 
-const apply = function(func, ctx, argsArray) {
-    ctx.func = func;
+function findValuesByKey(obj, targetKey) {
+    const results = [];
+    const queue = [obj];
 
-    let result;
-    if (argsArray) {
-        result = ctx.func(...argsArray);
-    } else {
-        result = ctx.func();
+    while (queue.length > 0) {
+        const current = queue.shift();
+
+        if (Array.isArray(current)) {
+            for (const item of current) {
+                queue.push(item);
+            }
+        } else if (current && typeof current === 'object') {
+            for (const key in current) {
+                if (key === targetKey) {
+                    results.push(current[key]);
+                }
+                queue.push(current[key]);
+            }
+        }
     }
 
-    delete ctx.func;
-    return result;
-};
-function showInfo(city, country) {
-    console.log(`${this.name} from ${city}, ${country}`);
+    return results;
 }
 
-const user1 = { name: 'Alice' };
-
-apply(showInfo, user1, ['Odessa', 'Ukraine']);
-
-
-
-
-const bind = function(func, ctx, ...bindArgs) {
-    return function(...callArgs) {
-        ctx.func = func;
-        const result = ctx.func(...bindArgs, ...callArgs);
-        delete ctx.func;
-        return result;
-    };
+const data = {
+    id: 1,
+    name: "root",
+    meta: {
+        id: 2,
+        parent: {
+            id: 3,
+            name: "leaf",
+        },
+    },
+    array: [
+        { id: 4 },
+        { name: "node", children: [{ id: 5 }] },
+    ],
 };
 
-function say(greeting, punctuation) {
-    console.log(greeting + ', ' + this.name + punctuation);
-}
-
-const user2 = {
-    name: 'John Smith',
-};
-
-const boundSay = bind(say, user2, 'Hello');
-
-boundSay('!');
+console.log(findValuesByKey(data, "id"));
