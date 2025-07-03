@@ -1,22 +1,46 @@
 'use strict';
 
-function hoistingScope() {
+const apply = function(func, ctx, argsArray) {
+    ctx.func = func;
 
-    for (let i = 0; i < 1; i++) {
-        var variableVar = "var в циклі";
-        let variableLet = "let в циклі";
-        const variableConst = "const в циклі";
-
-        console.log("variableVar:", variableVar);
-        console.log("variableLet:", variableLet);
-        console.log("variableConst:", variableConst);
+    let result;
+    if (argsArray) {
+        result = ctx.func(...argsArray);
+    } else {
+        result = ctx.func();
     }
 
-    // var visible outside the loop
-    console.log("variableVar:", variableVar);
-
-    // let and const not visible outside the loop - we will get errors
-    console.log("variableLet:", variableLet);
-    console.log("variableConst:", variableConst);
+    delete ctx.func;
+    return result;
+};
+function showInfo(city, country) {
+    console.log(`${this.name} from ${city}, ${country}`);
 }
-hoistingScope();
+
+const user1 = { name: 'Alice' };
+
+apply(showInfo, user1, ['Odessa', 'Ukraine']);
+
+
+
+
+const bind = function(func, ctx, ...bindArgs) {
+    return function(...callArgs) {
+        ctx.func = func;
+        const result = ctx.func(...bindArgs, ...callArgs);
+        delete ctx.func;
+        return result;
+    };
+};
+
+function say(greeting, punctuation) {
+    console.log(greeting + ', ' + this.name + punctuation);
+}
+
+const user2 = {
+    name: 'John Smith',
+};
+
+const boundSay = bind(say, user2, 'Hello');
+
+boundSay('!');
