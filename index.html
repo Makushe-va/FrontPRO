@@ -9,8 +9,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>Hello World!!!</h1>
-<button id="toggle-theme">Змінити тему</button>
+<select id="filter">
+    <option value="all">Усі</option>
+    <option value="fruit">Фрукти</option>
+    <option value="vegetable">Овочі</option>
+</select>
+
+<div class="card" data-category="fruit">🍎 Яблуко</div>
+<div class="card" data-category="vegetable">🥕 Морква</div>
+<div class="card" data-category="fruit">🍌 Банан</div>
+
 
 <script src="js/script.js"></script>
 </body>
