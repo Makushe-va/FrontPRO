@@ -4,7 +4,7 @@ const form = document.getElementById("editForm");
 const id = parseInt(localStorage.getItem("selectedProductID"));
 
 if (!id) {
-    alert("Товар не вибрано.");
+    alert("Товар не вибрано!");
     window.location.href = "list.html";
 }
 
@@ -12,7 +12,7 @@ const products = JSON.parse(localStorage.getItem("products")) || [];
 const product = products.find(p => p.id === id);
 
 if (!product) {
-    alert("Товар не знайдено.");
+    alert("Товар не знайдено!");
     window.location.href = "list.html";
 }
 

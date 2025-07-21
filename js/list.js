@@ -34,5 +34,4 @@ function editProduct(id) {
     localStorage.setItem("selectedProductID", id);
     window.location.href = "edit.html";
 }
-
 loadProducts();
