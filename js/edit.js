@@ -16,6 +16,7 @@ if (!product) {
     window.location.href = "list.html";
 }
 
+
 form.name.value = product.name;
 form.description.value = product.description;
 form.price.value = product.price;

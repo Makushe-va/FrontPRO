@@ -25,6 +25,5 @@ form.addEventListener("submit", (e) => {
     products.push(newProduct);
     localStorage.setItem("products", JSON.stringify(products));
 
-
     window.location.href = "list.html";
 });

@@ -21,6 +21,7 @@ function loadProducts() {
     });
 }
 
+
 function deleteProduct(id) {
     if (!confirm("Ви впевнені, що хочете видалити цей товар?")) return;
 
