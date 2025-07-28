@@ -14,6 +14,8 @@ for (let i = 0; i < 5; i++) student2.absent();
 
 for (let i = 0; i < 25; i++) student3.absent();
 
+
+
 console.log(`${student1.getFullName()}: ${student1.summary()}`);
 console.log(`${student2.getFullName()}: ${student2.summary()}`);
 console.log(`${student3.getFullName()}: ${student3.summary()}`);
