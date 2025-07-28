@@ -1,3 +1,52 @@
-h1{
-    color: darkblue;
+.taskWrapper {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+}
+.taskWrapper.completed {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    transition: all 0.3s ease;
+}
+.taskHeading {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #343a40;
+}
+.taskDescription {
+    flex-grow: 1;
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 15px;
+    overflow: auto;
+}
+.delete-btn {
+    align-self: flex-end;
+    width: 80px;
+}
+.delete-btn:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    box-shadow: 0 0 8px rgba(220,53,69,0.7);
+    transition: all 0.3s ease;
+}
+.form-check {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+#clearForm {
+    margin-left: 10px;
+}
+#deleteAll {
+    margin-left: 10px;
 }
