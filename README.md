@@ -1,14 +1,9 @@
-ДЗ 46. Парсер URL через клас
+ДЗ 45. Навігаційне меню з підсвіткою активної сторінки
 
+Мета: поєднання location, DOM, класів і роботи з історією.
 Умови:
-Створіть клас URLParser з конструктором, що приймає повний URL.
-Додайте геттери:
-protocol → повертає http: або https:
-hostname → повертає домен
-path → повертає шлях (/products/item)
-queryParams → повертає об’єкт з query-параметрами ({ search: "book", page: "2" })
-!!! ВИКОРИСТАННЯ window.location або location ЗАБОРОНЕНО !!!
-Приклад:
-
-const parser = new URLParser("https://example.com/products/item?search=book&page=2");
-console.log(parser.queryParams); // { search: "book", page: "2" }
+Реалізуйте навігаційне меню (HTML) з 3 посиланнями: /home, /about, /contact.
+Створіть клас Navigation, який:
+Відслідковує window.location.pathname.
+Додає CSS-клас "active" до відповідного пункту меню.
+Реагує на popstate і вручну змінює URL при кліку (через pushState).
