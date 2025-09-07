@@ -1,23 +1,32 @@
-export class UserController {
-    model = null;
-    constructor(model) {
-        this.model = model;
-    }
-    async getUsersData(userIds) {
-        const promises = userIds.map(id => this.model.fetchUserData(id));
-        const results = await Promise.allSettled(promises);
-        const success = [];
-        const errors = [];
+import { BusModel } from './Model.js';
+import { BusView } from './View.js';
 
-        results.forEach((result, index) => {
-        if (result.status === 'fulfilled') {
-            success.push(result.value);
-        } else {
-            errors.push ({
-            id: userIds[index],
-            error: result.reason.message});
+export class BusController {
+    constructor() {
+        this.model = new BusModel();
+        this.view = new BusView();
+    }
+    on(topicName, handlerFunction) {
+        this.model.addHandler(topicName, handlerFunction);
+        return () => this.off(topicName, handlerFunction);
+    }
+    off(topicName, handlerFunction) {
+        this.model.removeHandler(topicName, handlerFunction);
+    }
+    emit(topicName, payload, delay = 0) {
+        const handlerList = this.model.getHandlers(topicName);
+        if (!handlerList.length) {
+            return;
         }
-        });
-        return {success, errors};
+        setTimeout(() => {
+            for (const handlerFunction of handlerList) {
+                handlerFunction(payload);
+            }
+        }, delay);
+    }
+    log(messageText, dataObject) {
+        this.view.log(messageText, dataObject);
     }
 }
+
+

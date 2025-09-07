@@ -1,9 +1,24 @@
-export class UserModel {
-    async fetchUserData(userId) {
-        await new Promise(resolve => setTimeout(resolve, 500));
-        if (userId % 2 === 0) {
-            throw new Error(`User ${userId} not found.`);
+export class BusModel {
+    constructor() {
+        this.topics = Object.create(null); // { topicName: Set<Function> }
+    }
+    addHandler(topicName, handlerFunction) {
+        if (!this.topics[topicName]) {
+            this.topics[topicName] = new Set();
         }
-        return {id: userId, name: `User ${userId}`};
+        this.topics[topicName].add(handlerFunction);
+    }
+    removeHandler(topicName, handlerFunction) {
+        if (!this.topics[topicName]) {
+            return;
+        }
+        this.topics[topicName].delete(handlerFunction);
+
+        if (this.topics[topicName].size === 0) {
+            delete this.topics[topicName];
+        }
+    }
+    getHandlers(topicName) {
+        return this.topics[topicName] ? Array.from(this.topics[topicName]) : [];
     }
 }
