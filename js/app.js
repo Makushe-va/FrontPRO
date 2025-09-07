@@ -6,6 +6,10 @@ const model = new UserModel();
 const controller = new UserController(model);
 const view = new UserView();
 
-controller.getUsersData([1, 2, 3, 4, 5]).then(result => {
+const run = async () => {
+    const result = await controller.getUsersData([1,2,3,4,5]);
     view.render(result);
-});
+};
+
+run();
+

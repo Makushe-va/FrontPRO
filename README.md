@@ -1,4 +1,7 @@
-ДЗ 50. Fake api
+ДЗ 52. Async await
+Переписати ДЗ на  async / await функції
+
+
 
 Ви маєте функцію fetchUserData(userId), яка повертає проміс із даними користувача (емуляція запиту до API).
 Потрібно написати функцію getUsersData(userIds), яка:
